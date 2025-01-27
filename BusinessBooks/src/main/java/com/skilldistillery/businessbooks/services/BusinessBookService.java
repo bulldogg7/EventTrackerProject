@@ -8,12 +8,12 @@ public interface BusinessBookService {
 
 	List<BusinessBook> findAll();
 	
-	BusinessBook findById(int bookId);
+	BusinessBook findBookById(int bookId);
 	
-	BusinessBook create(BusinessBook newBook);
+	BusinessBook createBook(BusinessBook newBook);
 	
-	BusinessBook update(BusinessBook book, int bookId);
+	BusinessBook updateBook(BusinessBook book, int bookId);
 	
-	boolean deleteById(int bookId);
+	boolean deleteBookById(int bookId);
 	
 }
