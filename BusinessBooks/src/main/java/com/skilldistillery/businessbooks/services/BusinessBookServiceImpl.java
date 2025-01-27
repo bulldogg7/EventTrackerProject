@@ -1,6 +1,5 @@
 package com.skilldistillery.businessbooks.services;
 
-import java.awt.print.Book;
 import java.util.List;
 import java.util.Optional;
 
@@ -39,20 +38,21 @@ public class BusinessBookServiceImpl implements BusinessBookService {
 	@Override
 	public BusinessBook updateBook(BusinessBook book, int bookId) {
 		Optional<BusinessBook> bookOptional = bookRepository.findById(bookId);
-		BusinessBook foundBook = bookOptional.get();
+		BusinessBook managedBook = null;
 		if (bookOptional.isPresent()) {
-			foundBook.setTitle(book.getTitle());
-			foundBook.setCategory(book.getCategory());
-			foundBook.setAuthor(book.getTitle());
-			foundBook.setNumberOfPages(book.getNumberOfPages());
-			foundBook.setFinishDate(book.getFinishDate());
-			foundBook.setImageUrl(book.getImageUrl());
-			foundBook.setRating(book.getRating());
-			foundBook.setReview(book.getReview());
-			foundBook.setRecommend(book.getRecommend());
-			bookRepository.saveAndFlush(foundBook);
+			managedBook = bookOptional.get();
+			managedBook.setTitle(book.getTitle());
+			managedBook.setCategory(book.getCategory());
+			managedBook.setAuthor(book.getTitle());
+			managedBook.setNumberOfPages(book.getNumberOfPages());
+			managedBook.setFinishDate(book.getFinishDate());
+			managedBook.setImageUrl(book.getImageUrl());
+			managedBook.setRating(book.getRating());
+			managedBook.setReview(book.getReview());
+			managedBook.setRecommend(book.getRecommend());
+			bookRepository.saveAndFlush(managedBook);
 		}
-		return foundBook;
+		return managedBook;
 	}
 
 	@Override

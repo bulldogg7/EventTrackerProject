@@ -29,12 +29,12 @@ public class BusinessBookController {
 		return bookService.findAll();
 	}
 
-	@GetMapping("businessBook/{bookId}")
+	@GetMapping("businessBooks/{bookId}")
 	public BusinessBook findBookById(@PathVariable("bookId") int bookId) {
 		return bookService.findBookById(bookId);
 	}
 
-	@PostMapping("businessBook")
+	@PostMapping("businessBooks")
 	public BusinessBook createBook(@RequestBody BusinessBook businessBook, HttpServletResponse response) {
 		try {
 		bookService.createBook(businessBook);
@@ -47,7 +47,7 @@ public class BusinessBookController {
 		return businessBook;
 	}
 
-	@PutMapping("businessBook/{bookId}")
+	@PutMapping("businessBooks/{bookId}")
 	public BusinessBook updateBook(@RequestBody BusinessBook businessBook, 
 			@PathVariable("bookId") int bookId, HttpServletResponse response) {
 		BusinessBook updatedBook = bookService.updateBook(businessBook, bookId);
@@ -57,7 +57,7 @@ public class BusinessBookController {
 		return updatedBook;
 	}
 
-	@DeleteMapping("businessBook/{bookId}")
+	@DeleteMapping("businessBooks/{bookId}")
 	public boolean deleteBook(@PathVariable("bookId") int bookId) {
 		boolean wasDeleted = bookService.deleteBookById(bookId);
 		return wasDeleted;
